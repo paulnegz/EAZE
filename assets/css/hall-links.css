@@ -1,0 +1,57 @@
+.identifier > div > h3 {
+    text-align: center;
+}
+.identifier > :first-child {
+    border-right: 2px solid #666;
+}
+.wheading {
+    padding-top: 1.5rem;
+    border-top: 2px solid #eeeeee;
+}
+.butts {
+    padding-bottom:1.5em;
+}
+.image-container {
+    position: relative;
+    padding-bottom: 75%;
+    overflow: hidden;
+}
+.image-container > a > img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.5s;
+}
+.image-overlay {
+    display: flex;
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    justify-content: center;
+    transition: 0.5s;
+}
+.image-overlay > h3 {
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 0.5rem 0.5rem;
+    text-align: center;
+}
+.image-container:hover > a > .image-overlay {
+    opacity: 1;
+}
+.image-container:hover > a > img {
+    transform: scale(1.1);
+}
+@media screen and (max-width: 736px) {
+    .image-overlay {
+        opacity: 1;
+    }
+}

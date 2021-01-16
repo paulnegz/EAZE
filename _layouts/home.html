@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+
+    {% include head.html %}
+	<link rel="stylesheet" type="text/css" href="{{ "assets/css/home.css" | absolute_url }}">
+
+	  <body class="is-loading">
+
+        <!-- Wrapper -->
+        <div id="wrapper" class="fade-in">
+
+            {% include intro.html %}
+            {% include header.html %}
+			{% include menu.html %}
+			
+			<section class="major">
+				{% if page.landing-title %}<h1>{{ page.landing-title }}</h1>{% endif %}
+				<p>
+					{{ page.content }}
+				</p>
+			</section>
+			
+
+			<div class="row" id="counter-container">
+				<div class="3u 12u$(small) counter" style="text-align: center">
+					<h1 class="count">600</h1>
+					<h4>residents</h4>
+				</div>
+				<div class="3u 12u$(small) counter" style="text-align: center">
+					<h1 class="count">150</h1>
+					<h4>student leaders</h4>
+				</div>
+				<div class="3u 12u$(small) counter" style="text-align: center">
+					<h1 class="count">12</h1>
+					<h4>halls</h4>
+				</div>
+				<div class="3u 12u$(small) counter" style="text-align: center">
+					<h1 class="count">1</h1>
+					<h4>community</h4>
+				</div>
+			</div>
+
+			{% if page.embed-video %}
+			<div class="row">
+				<div class="youtube" data-embed="{{ page.embed-link }}">
+					<div class="play-button">
+						<img class="js-lazy-image" data-src="{{ "assets/images/yt_logo_rgb_light.png" | absolute_url }}" />
+					</div>
+				</div>
+			</div>
+			{% endif %}
+
+            {% if site.posts.size > 0 %}
+
+				    <!-- Posts -->
+			<section class="posts row">
+			{% for post in site.posts limit: 2 %}
+				<article class="6u 12u$(small)">
+					<header>
+						<span class="date">{{ post.date | date: "%B %-d, %Y" }}</span>
+						<h2><a href="{{ post.url  | absolute_url }}">{{ post.title }}</a></h2>
+					</header>
+					{% if post.description %}<i>{{ post.description }}</i>{% endif %}
+					{% if post.image %}<a href="{{ post.url  | absolute_url }}" class="image-container"><img class="js-lazy-image" data-src="{{ post.image | absolute_url }}" alt="" /></a>{% endif %}
+					<ul class="actions">
+						<li><a href="{{ post.url  | absolute_url }}" class="button special">Read More</a></li>
+					</ul>
+				</article>
+			{% endfor %}
+			</section>
+
+			<section class="post-button">
+				<a href="{{ "newsletter/" | absolute_url }}" class="button">Newsletter</a>
+			</section>
+
+			{% endif %}
+
+		{% include footer.html %}
+		<script src="{{ "assets/js/home.js" | absolute_url }}"></script>
+
+    </body>
+
+</html>

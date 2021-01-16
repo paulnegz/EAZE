@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+
+<html>
+
+    {% include head.html %}
+
+	  <body class="is-loading">
+
+		    <!-- Wrapper -->
+        <div id="wrapper">
+
+            {% include header.html %}
+            <div id="main">
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                        <h1>Error 404</h1>
+                </header>
+
+                <p>Looks like the page you were looking for doesn't exist!</p>
+                <div class="bcontainer"><a href="{{ site.url }}{{ site.baseurl }}/" class="button">Home</a></div>
+
+                <style>
+                    p, a {
+                        text-align: center;
+                    }
+                    div.bcontainer {
+                        display: flex;
+                        justify-content: center;
+                    }
+                </style>
+
+            </section>
+            </div>
+
+            <div id="copyright">
+                <ul>
+                    <li>&copy; {{ site.title }} {{ site.subtitle }}</li>
+                    <li>Design: <a href="https://html5up.net" target="_blank" rel="noopener">HTML5 UP</a></li>
+                    <li>Jekyll integration: <a href="http://andrewbanchi.ch" target="_blank" rel="noopener">Andrew Banchich</a></li>
+                    <li>Customization: <a href="http://juzerzarif.com" target="_blank" rel="noopener">Paul Negedu</a></li>
+                    <li>Images: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></li>
+                </ul>
+                <p id="disclaimer">
+                    This website is not owned or operated by the University of Kansas and any views or opinions expressed do not necessarily reflect the views of the University of Kansas.
+                </p>
+            </div>
+            <style>
+                #disclaimer {
+                    text-transform: none;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-weight: 400;
+                    margin-top: 1rem;
+                }
+            </style>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="{{ "assets/js/jquery.min.js" | absolute_url }}"></script>
+        <script src="{{ "assets/js/jquery.scrollex.min.js" | absolute_url }}"></script>
+        <script src="{{ "assets/js/jquery.scrolly.min.js" | absolute_url }}"></script>
+        <script src="{{ "assets/js/skel.min.js" | absolute_url }}"></script>
+        <script src="{{ "assets/js/util.js" | absolute_url }}"></script>
+        <script src="{{ "assets/js/main.js" | absolute_url }}"></script>
+        
+
+    </body>
+
+</html>

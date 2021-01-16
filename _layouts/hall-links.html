@@ -1,0 +1,35 @@
+---
+layout: page
+---
+
+<link rel="stylesheet" href="{{ "assets/css/hall-links.css" | absolute_url }}" >
+
+{% assign mhalls="Battenfeld,Grace Pearson,KK Amini,Krehbiel,Pearson,Stephenson" | split: ',' %}
+{% assign whalls = "Douthart,Margaret Amini,Miller,Rieger,Sellards,Watkins" | split: ',' %}
+
+<h2>Men's Halls </h2>
+<div class="row">
+    {% for hall in mhalls %}
+    <div class="4u 6u(small) butts">
+        <div class="image-container">
+            <a href="http://juzerzarif.com/stephenson-website-v2" target="_blank" rel="noopener">
+            <img class="js-lazy-image" data-src="../assets/images/hall-photos/{{hall | downcase}}.jpg" alt="{{ hall }}"/>
+            <div class="image-overlay"><h3>{{hall}}</h3></div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<h2 class="wheading">Women's Halls</h2>
+<div class="row">
+    {% for hall in whalls %}
+    <div class="4u 6u(small) butts">
+        <div class="image-container">
+            <a href="{{ absolute_url }}" target="_blank" rel="noopener">
+            <img class="js-lazy-image" data-src="../assets/images/hall-photos/{{hall | downcase}}.jpg" alt="{{ hall }}"/>
+            <div class="image-overlay"><h3>{{hall}}</h3></div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>

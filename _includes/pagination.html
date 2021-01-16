@@ -1,0 +1,85 @@
+{% assign start = 0 %}
+{% assign end = 0 %}
+
+<!-- Setting start and end bounds for pagination links -->
+
+{% if paginator.total_pages > 8 %}
+    
+    {% assign start = paginator.page | minus: 3 %}
+    {% if start <= 1 %} 
+        {% assign start = 1 %} 
+        {% assign end = start | plus: 6 %}
+    {% else %}
+        {% assign end = start | plus: 5 %}
+    {% endif %}
+
+    {% if end >= paginator.total_pages %} 
+        {% assign start = paginator.total_pages | minus: 6 %}
+        {% assign end = paginator.total_pages %} 
+    {% endif %}
+
+{% elsif paginator.total_pages > 1 %}
+
+    {% assign start = 1 %}
+    {% assign end = paginator.total_pages %}
+
+{% endif %}
+
+{% if paginator.total_pages > 1 %}
+
+    <div class="page-links">
+    {% if paginator.previous_page %}<a href="{{ paginator.previous_page_path | absolute_url }}">&lsaquo;</a>{% else %}<span>&lsaquo;</span>{% endif %}
+    {% if start > 2 %}
+        {% assign s = start | minus: 1 %}
+        <a href="{{ site.paginate_path | absolute_url | replace: ':num', s }}">...</a> 
+    {% elsif start > 1 %}
+        <a href="{{ "newsletter/" | absolute_url }}">...</a>
+    {% endif %}
+    {% for i in (start..end) %}
+        {% if paginator.page == i %}
+        <span class="active">{{ i }}</span>
+        {% else %}
+            {% if i == 1 %}
+            <a href="{{ "newsletter/" | absolute_url }}">{{ i }}</a>
+            {% else %}
+            <a href="{{ site.paginate_path | absolute_url | replace: ':num', i }}">{{ i }}</a>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    {% if end < paginator.total_pages %}
+        {% assign e = end | plus: 1 %}
+        <a href="{{ site.paginate_path | absolute_url | replace: ':num', e }}">...</a> 
+    {% endif %}
+    {% if paginator.next_page %}<a href="{{ paginator.next_page_path | absolute_url }}" class="">&rsaquo;</a>{% else %}<span>&rsaquo;</span>{% endif %}
+    </div>
+
+
+
+{% endif %}
+
+<style>
+    .page-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 2rem);
+        justify-content: center;
+    }
+    .page-links > * {
+        border-left: 2px solid #eeeeee;
+        border-top: 2px solid #eeeeee;
+        border-bottom: 2px solid #eeeeee;
+        text-align: center;
+    }
+    .page-links > *:last-child {
+        border-right: 2px solid #eeeeee;
+    }
+    .page-links > a:hover {
+        border-bottom: 2px solid #eeeeee;
+    }
+    .page-links > span {
+        color: #eeeeee;
+    }
+    .page-links > .active {
+        color: #212931;
+        background-color: #f5f5f5;
+    }
+</style>

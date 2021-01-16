@@ -1,0 +1,25 @@
+---
+layout: page
+---
+
+{{ content }}
+
+<hr>
+
+<div class="slick-carousel">
+{% assign dining_pics = site.static_files | where: "dining-image", true %}
+{% assign dining_thumbs = site.static_files | where: "dining-thumbnail", true %}
+{% for photo in dining_pics %}
+    <div class="image-container">
+        <img class="carousel-image" data-lazy="{{ photo.path | absolute_url }}" />
+    </div>
+{% endfor %}
+</div>
+
+<div class="slick-nav">
+    {% for photo in dining_thumbs %}
+    <div class="nav-container">    
+        <img data-lazy="{{ photo.path | absolute_url }}" />
+    </div>
+    {% endfor %}
+</div>

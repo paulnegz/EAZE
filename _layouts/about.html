@@ -1,0 +1,75 @@
+---
+layout: page
+---
+
+{{ page.content }}
+{% assign testimonials = site.data.testimonials %}
+
+{% if testimonials.size > 0 %}
+<hr>
+<div class="testimonial-array">
+    {% for record in testimonials %}
+    <div class="testimonial">
+        <div class="box">
+            {{ record.quote }}
+        </p><p>
+            - <i>{{ record.name }}</i>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<style>
+    .testimonial-array {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1.5rem;
+    }
+    @media screen and (max-width: 736px) {
+        .testimonial-array {
+            grid-template-columns: 1fr;
+        }
+    }
+    .testimonial {
+        display: none;
+    }
+    .box {
+        margin-bottom: 0;
+    }
+</style>
+
+<script>
+    var tarray = document.getElementsByClassName("testimonial");
+    console.log(tarray.length);
+    var size = tarray.length;
+    
+    if(size > 4)
+    {
+        var n = []
+        for (var i=0; i<4; i++)
+        {
+            var random;
+            do
+            {
+                random = Math.floor((Math.random()*size));
+            } while(n.includes(random));
+            n[i] = random;
+        }
+        console.log(n);
+
+        n.forEach(function(count)
+        {
+            tarray[count].style.display = "block";
+            tarray[count].setAttribute("active","");
+        });
+    }
+    else
+    {
+        for(var i=0; i<size; i++)
+        {
+            tarray[i].style.display = "block"
+        }
+    }
+
+</script>
