@@ -7,6 +7,7 @@ gem 'jekyll-paginate'
 gem 'jekyll-sitemap'
 gem 'jekyll-figure'
 gem 'rack-jekyll'
+gem 'rack'
 
 
 
