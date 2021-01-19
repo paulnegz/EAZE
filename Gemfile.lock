@@ -74,7 +74,6 @@ DEPENDENCIES
   jekyll-figure
   jekyll-paginate
   jekyll-sitemap
-  rack
   rack-jekyll
 
 RUBY VERSION
