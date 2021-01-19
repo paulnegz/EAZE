@@ -1,7 +1,7 @@
 ---
 layout: exec
-title: ASHC
-landing-title: All Scholarship Hall Council
+title: EXECS
+landing-title: Meet Our Executives
 order: 4
 ---
 
