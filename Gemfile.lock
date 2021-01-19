@@ -76,7 +76,6 @@ DEPENDENCIES
   jekyll-sitemap
   rack
   rack-jekyll
-  tzinfo-data
 
 RUBY VERSION
    ruby 2.5.8p224
